@@ -52,7 +52,7 @@ const Auth = ({ authProps }) => {
         alert("Please fill all elements");
       } else {
         try {
-          const res = await axios.post("/api/auth/login", {
+          const res = await axios.post("http://localhost:8000/api/auth/login", {
             email: formData.email,
             password: formData.password,
           });
@@ -105,11 +105,14 @@ const Auth = ({ authProps }) => {
         alert("passwords do not match");
       } else {
         try {
-          const res = await axios.post("/api/auth/signup", {
-            username: formData.username,
-            email: formData.email,
-            password: formData.password,
-          });
+          const res = await axios.post(
+            "http://localhost:8000/api/auth/signup",
+            {
+              username: formData.username,
+              email: formData.email,
+              password: formData.password,
+            }
+          );
 
           //IF SUCCESSFULLY CREATED THEN CLEAR FORM
           //CHECK CONDITION BELOW

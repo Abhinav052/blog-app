@@ -4,12 +4,28 @@ import createdefault from "../images/create/createdefault.jpg";
 const Create = () => {
   // createdefault = createdefaultedit;
   const [activeImg, setActiveImg] = React.useState(null);
-  const handleImageChange = (event) => {
+  const [previewImg, setPreviewImg] = React.useState(null);
+  function handleImageChange(event) {
     event.preventDefault();
-    setActiveImg(event.target.files[0]);
-    console.log("active IMG =" + activeImg);
-    console.log(event.target.files[0]);
-  };
+    if (event.target.files[0]) {
+      setActiveImg(event.target.files[0]);
+    }
+  }
+  React.useEffect(() => {
+    if (activeImg) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setPreviewImg(reader.result);
+      };
+      reader.readAsDataURL(activeImg);
+    } else {
+      setPreviewImg(null);
+    }
+  }, [activeImg]);
+
+  console.log(previewImg + "PrevieImg");
+  console.log("active IMG = " + activeImg);
+
   return (
     <div
       style={{
@@ -31,22 +47,30 @@ const Create = () => {
               name=""
               id="create--image"
               onChange={handleImageChange}
+              accept="image/*"
             />
-            <img
-              src={!activeImg ? createdefault : activeImg}
-              alt=""
-              className="create--imageloader--default"
-            />
+            {previewImg ? (
+              <img
+                src={previewImg}
+                alt=""
+                className="create--imageloader--default"
+              />
+            ) : (
+              <img
+                src={createdefault}
+                alt=""
+                className="create--imageloader--default"
+              />
+            )}
           </label>
           {/* </div> */}
         </div>
-
         <div className="create--container">
           <form className="create--form">
             {/*  TITLE INPUT */}
             <div className="create--forminput">
               <label htmlFor="create--title">Title</label>
-              <input type="text" id="create--title" />
+              <input type="text" id="create--title" placeholder="Enter Title" />
             </div>
             {/*  CATEGORY SECTION */}
             <div className="create--forminput">
