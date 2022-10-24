@@ -1,0 +1,519 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+
+* {
+  margin: 0%;
+  box-sizing: border-box;
+  padding: 0%;
+}
+/* To hire scroll bar */
+/* ::-webkit-scrollbar {
+  display: none;   
+} */
+
+/* =============================================================================================================================================
+ ============================================================ Auth Styles ====================================================================
+============================================================================================================================================= */
+
+.auth--parent {
+  width: 100%;
+  height: 100vh;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.auth--close--btn {
+  position: relative;
+  height: 30px;
+  width: 30px;
+  top: 10vh;
+  /* left: ; */
+  right: -96%;
+  /* border: 2px solid red; */
+  background-color: rgba(125, 123, 123, 0.396);
+  box-shadow: 0 0px 26px 5px rgba(205, 202, 202, 0.5);
+}
+.auth--close--btn:hover {
+  filter: grayscale();
+  background-color: rgba(255, 255, 255, 0.229);
+  color: black;
+
+  box-shadow: 0 0px 26px 5px rgba(205, 202, 202, 0.5);
+}
+.auth--ellipsebig {
+  position: absolute;
+  left: 0;
+  height: 100vh;
+  top: 0;
+  /* width: 329px; */
+}
+
+.auth--subtract {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 30vh;
+}
+
+/* .auth--polygon1 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+} */
+
+.auth--polygon2 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.auth--polygon2 path {
+  fill: #fbda03;
+}
+
+.auth--polygon3 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.auth--container {
+  height: 100vh;
+  min-width: 20vw;
+  /* border: 2px solid white; */
+  display: flex;
+  color: white;
+  flex-direction: column;
+}
+
+.auth--heading {
+  margin-top: 10vh;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 96px;
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+
+.auth--container--sub {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth--username {
+  background-color: black;
+  color: white;
+  width: 531px;
+  margin-bottom: 44px;
+  height: 56px;
+  border: 0;
+  border-bottom: 2px solid white;
+}
+
+.auth--password {
+  background-color: black;
+  color: white;
+  width: 531px;
+  margin-bottom: 44px;
+  height: 56px;
+  border: 0;
+  border-bottom: 2px solid white;
+}
+
+.auth--submit {
+  background: #fbda03;
+  color: white;
+  width: 531px;
+  height: 56px;
+  border: 0;
+}
+
+.auth--mode {
+  margin-top: 10px;
+}
+
+.auth--parent--mobile {
+  height: 120vh;
+}
+
+@media screen and (max-width: 768px) {
+  .auth--parent {
+    /* border: 2px solid red; */
+  }
+  .auth--close--btn {
+  }
+  .auth--ellipsebig {
+  }
+
+  .auth--subtract {
+  }
+
+  .auth--polygon2 {
+  }
+
+  .auth--polygon2 path {
+  }
+
+  .auth--polygon3 {
+  }
+
+  .auth--container {
+  }
+
+  .auth--heading {
+  }
+
+  .auth--container--sub {
+  }
+
+  .auth--username {
+  }
+
+  .auth--password {
+  }
+
+  .auth--submit {
+  }
+
+  .auth--mode {
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .auth--parent {
+    /* border: 2px solid yellow; */
+    /* background: url(./images/auth/ellipsemobile.png); */
+    /* background-color: #fbda03; */
+    /* min-height: 100vh; */
+  }
+
+  .auth--close--btn {
+    position: relative;
+    height: 20px;
+    width: 20px;
+    top: 15px;
+    right: -90%;
+
+    background-color: rgba(125, 123, 123, 0.685);
+    box-shadow: -2px -2px 20px 10px rgba(205, 202, 202, 0.5);
+    /* right: 100px; */
+  }
+
+  .auth--ellipsebig {
+    display: none;
+
+    /* transform: rotate(90deg);
+    background-color: red;
+    width: 10vh;
+    height: 80vh;
+    top: -90%; */
+  }
+  /* .auth--ellipsebig g circle {
+    fill: rgba(132, 132, 132, 0.17);
+  } */
+  .auth--subtract {
+    display: none;
+  }
+
+  .auth--polygon2 {
+    display: none;
+  }
+
+  .auth--polygon2 path {
+  }
+
+  .auth--polygon3 {
+    display: none;
+  }
+
+  .auth--container {
+    /* margin-top: 10vh; */
+    /* background-color: white; */
+    /* border: 2px solid white; */
+    /* opacity: 0.5; */
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    height: 65vh;
+  }
+
+  .auth--heading {
+    margin-top: 3vh;
+    margin-bottom: 5vh;
+    text-align: center;
+  }
+
+  .auth--container--sub {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .auth--username {
+    width: 88vw;
+    padding-left: 10px;
+    border-radius: 4px;
+    z-index: 10px;
+  }
+
+  .auth--password {
+    width: 88vw;
+    padding-left: 10px;
+    border-radius: 4px;
+  }
+
+  .auth--submit {
+    width: 88vw;
+    border-radius: 4px;
+  }
+
+  .auth--mode {
+  }
+  .auth--container--mobile {
+    height: 100vh;
+  }
+}
+
+/* =============================================================================================================================================
+ ============================================================ Navbar Styles ====================================================================
+============================================================================================================================================= */
+
+.nav--container {
+  position: absolute;
+  z-index: 999;
+  height: 10vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: white;
+  background: linear-gradient(
+    -45deg,
+    /* #ff00f4, #c900ff,
+    #6f00ff,
+    #001dab, */ rgb(48, 25, 52),
+    #000000
+  );
+  /* border-bottom: 2px solid #d01eef; */
+  background-size: 150% 100%;
+}
+
+.nav--title {
+  margin-left: 5vw;
+  font-size: x-large;
+}
+
+.nav--menu {
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  margin-right: auto;
+  margin-left: auto;
+  min-width: 30vw;
+}
+
+.nav--menuitems {
+  font-size: large;
+}
+
+.nav--menuitems:hover {
+  color: #d01eef;
+}
+
+.nav--username {
+  margin-right: 2%;
+}
+
+.nav--auth {
+  margin-right: 5vw;
+  width: 100px;
+  height: 100%;
+  border-radius: 10px;
+  font-size: large;
+}
+
+.nav--auth:hover {
+  background-color: #d01eef;
+  color: white;
+}
+
+.nav--hamburgeropen {
+  height: 40px;
+  width: 40px;
+  margin-left: auto;
+  margin-right: 5%;
+  transition: 0.5s;
+}
+
+.nav--hamburger--on {
+  transform: rotate(90deg);
+}
+
+/* ========================================================================== Mobile NavBar ============================================================================================*/
+.nav--supercontainer {
+  position: relative;
+}
+
+.nav--mob--container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 500;
+  position: absolute;
+  background-color: rgba(124, 120, 120, 0.23);
+  top: -50vh;
+  transition: 0.5s;
+  font-weight: bold;
+  letter-spacing: 1px;
+
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.nav--mob--on {
+  /* background-color: palegreen; */
+  top: 10vh;
+}
+
+.nav--mob--menu {
+  text-align: center;
+  /* border: 2px solid red; */
+  z-index: 500;
+
+  text-decoration: none;
+}
+.nav--mob--menuitems {
+  width: 100%;
+  height: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.479);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 500;
+  color: white;
+}
+
+.nav--mob--auth {
+  display: flex;
+  justify-content: center;
+  z-index: 500;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  color: white;
+  /* border: 2px solid red; */
+  border: 1px solid rgba(255, 255, 255, 0.479);
+
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.nav--mob--menu li:not(:last-child) {
+  border-bottom: none;
+}
+
+@media screen and (max-width: 480px) {
+  .nav--menu {
+    display: none;
+  }
+  .nav--auth {
+    margin-left: auto;
+    display: none;
+  }
+}
+
+/* =============================================================================================================================================
+ ============================================================ Home Styles ====================================================================
+============================================================================================================================================= */
+
+/* =============================================================================================================================================
+ ============================================================ Create Styles ====================================================================
+============================================================================================================================================= */
+
+.create--supercontainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.create--imageloader {
+  margin-top: 20px;
+  height: 300px;
+  background-color: aliceblue;
+  width: 80%;
+  position: relative;
+}
+
+.create--imageloader--default {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+}
+
+.create--container {
+  width: 80%;
+  margin-top: 20px;
+}
+
+.create--form {
+  width: 100%;
+}
+
+.create--forminput {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.create--forminput label {
+  margin-bottom: 10px;
+  color: white;
+  font-size: 16px;
+}
+
+.create--forminput input,
+.create--forminput select {
+  height: 40px;
+  background-color: #180d1a;
+  color: white;
+}
+
+#create--title {
+}
+
+#create--category {
+}
+
+#create--textarea {
+  width: 100%;
+  resize: vertical;
+  background-color: #180d1a;
+  color: white;
+  margin-bottom: 10vh;
+}
+#create--tags {
+}
+
+#create--image {
+  height: 100%;
+  width: 100%;
+  background-color: #180d1a;
+}
+/* input[type="file"] {
+  display: none;
+} */
+
+::-webkit-file-upload-button {
+  /* background: black; */
+  border: none;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(48, 25, 52);
+  color: #180d1a;
+  z-index: 3;
+  position: absolute;
+}
