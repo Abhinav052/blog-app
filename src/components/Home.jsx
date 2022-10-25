@@ -1,7 +1,10 @@
 import React from "react";
 const Home = () => {
   console.log("Home rendered");
+  // const image =
+  //   URL.createObjectURL()
   // Implement nav hide on focus on home
+  const image = "";
   return (
     <div
       style={{
@@ -14,6 +17,7 @@ const Home = () => {
       }}
     >
       Home
+      <img src={image} alt="" />
     </div>
   );
 };

@@ -66,6 +66,7 @@ const Auth = ({ authProps }) => {
                 ...prev,
                 username: data.username.split(" ")[0],
                 userSignedIn: true,
+                email: data.email,
               };
             });
             navigate("/");

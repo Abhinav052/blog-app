@@ -5,7 +5,7 @@ const cors = require('cors')
 const port = 8000;
 const host = "localhost";
 const app = express();
-const { UserInfo } = require("./mongoose");
+const { UserInfo, PostInfo } = require("./mongoose");
 const jwt = require('jsonwebtoken');
 app.use(express.urlencoded({ extended: false }))
 app.use(cors())
@@ -61,7 +61,7 @@ app.post('/api/auth/login', async (req, res) => {
     }
 })
 function createAccessToken(tokenPayload) {
-    return jwt.sign(tokenPayload, process.env.ACCESS_TOKEN_SECRET_KEY, { expiresIn: '10s' })//,{ expiresIn: '20s' }
+    return jwt.sign(tokenPayload, process.env.ACCESS_TOKEN_SECRET_KEY)//,{ expiresIn: '20s' }
 }
 
 function createRefreshToken(tokenPayload) {
@@ -96,13 +96,33 @@ app.post('/api/auth/refreshtoken', (req, res) => {
     })
 })
 
-app.get('/posts/gigachad', (req, res) => {
+app.get('api/posts/gigachad', (req, res) => {
     console.log("request recieved")
     res.status(200).send("GIGACHAD Incoming get")
 })
-app.post('/posts/gigachad', authentication, (req, res) => {
+
+
+
+app.post('api/posts/gigachad', authentication, (req, res) => {
     console.log("request recieved")
     res.status(200).send("GIGACHAD Incoming post")
+})
+
+app.post('api/posts/create', authentication, async (req, res) => {
+    const data = req.body;
+    console.log(data)
+    const { blog, category, email, img, status, tags, title, username } = data
+    if (!status) return res.status(404).send("sign in required");
+    if (!(blog && category && email && img && title && username)) return res.status(404).send("incompelete form")
+    try {
+        await PostInfo.create({ blog: blog, category: category, email: email, img: img, tags: [11413, "string"], title: title, username: username })
+        return res.status(200).send("created success")
+    }
+    catch (error) {
+        console.log(error)
+        return res.status(404).send("create failed")
+    }
+
 })
 app.listen(port, host, (err) => {
     if (err) {

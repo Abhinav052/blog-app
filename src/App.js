@@ -8,7 +8,7 @@ import './App.css'
 import Create from './components/Create'
 const App = () => {
   const [windowSize, setWindowSize] = React.useState(getWindowSize());
-  const [activeUser, setActiveUser] = React.useState({ username: "", userSignedIn: false });
+  const [activeUser, setActiveUser] = React.useState({ username: JSON.parse(localStorage.getItem("data"))?.username, userSignedIn: JSON.parse(localStorage.getItem("data"))?.username ? true : false, email: JSON.parse(localStorage.getItem("data"))?.email });
 
 
   //Code for persisting state on reload               //IMP
@@ -17,7 +17,7 @@ const App = () => {
   // setActiveUser({ username: "gigachad", userSignedIn: true })
   React.useEffect(() => {
     setUser();
-  }, [])
+  }, [activeUser.userSignedIn])
   // const [activeUser, setActiveUser] = React.useState(setUser());
   // console.log(!JSON.parse(localStorage.getItem("data")))
   // console.log(JSON.parse(localStorage.getItem("data"))?.username)
@@ -25,7 +25,7 @@ const App = () => {
     if (!JSON.parse(localStorage.getItem("data")))
       setActiveUser({ username: "", userSignedIn: false })
     else
-      setActiveUser({ username: JSON.parse(localStorage.getItem("data"))?.username, userSignedIn: true })
+      setActiveUser({ username: JSON.parse(localStorage.getItem("data"))?.username, userSignedIn: true, email: JSON.parse(localStorage.getItem("data"))?.email })
 
   }
 
@@ -62,13 +62,20 @@ const App = () => {
     activeUser: activeUser
   }
 
+  const createProps = {
+    username: activeUser.username,
+    status: activeUser.userSignedIn,
+    email: activeUser.email
+
+  }
+
   return (
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Navbar navProps={navProps} />}>
           <Route index element={<Home />} />
           <Route path='/about' element={<Cart />} />
-          <Route path='/create' element={<Create />} />
+          <Route path='/create' element={<Create createProps={createProps} />} />
         </Route>
         <Route path='/auth' element={<Auth authProps={authProps} />} />
       </Routes>

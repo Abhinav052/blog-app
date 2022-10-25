@@ -49,7 +49,7 @@ const Navbar = ({ navProps }) => {
             <li className="nav--menuitems">About</li>
           </ul>
           <div className="nav--username">
-            Welcome, {username.charAt(0).toUpperCase() + username.slice(1)}
+            Welcome, {username?.charAt(0).toUpperCase() + username?.slice(1)}
           </div>
           <Link to={"/auth"} style={{ textDecoration: "none", height: "50%" }}>
             <button className="nav--auth">{`${
