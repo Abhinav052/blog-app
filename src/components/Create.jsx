@@ -1,5 +1,7 @@
 import React from "react";
 import createdefault from "../images/create/createdefault.jpg";
+// import axios from "axios";
+import setInterceptorHeader from "../axios/postinterceptor.js";
 // import createdefaultedit from "../images/create/createdefaultedit.jpg";
 const Create = (props) => {
   // createdefault = createdefaultedit;
@@ -65,9 +67,41 @@ const Create = (props) => {
       };
     });
   }, [previewImg]);
-
   // console.log(previewImg + "PrevieImg");
   // console.log("active IMG = " + activeImg);
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    const { blog, category, email, img, status, tags, title, username } =
+      createData;
+    if (
+      !(blog && category && email && img && title && username) ||
+      status === false
+    ) {
+      return alert("Incomplete form");
+    }
+    try {
+      console.log("handleTriggered");
+      const res = await setInterceptorHeader.post("/create", createData);
+      console.log(res.data);
+      alert("Blog created");
+      setCreateData({
+        username: username,
+        status: status,
+        img: "",
+        title: "",
+        category: "",
+        blog: "",
+        tags: [],
+        email: email,
+      });
+      setActiveImg(null);
+      setPreviewImg(null);
+    } catch (error) {
+      console.log("Axios" + error);
+    }
+  }
+
   return (
     <div
       style={{
@@ -127,7 +161,7 @@ const Create = (props) => {
               <select
                 id="create--category"
                 name="category"
-                value={createData.value}
+                value={createData.category}
                 onChange={handleChange}
               >
                 <option value="">-- Choose --</option>
@@ -148,12 +182,15 @@ const Create = (props) => {
               <label htmlFor="create--textarea"></label>
               <textarea
                 name="blog"
-                value={createData.value}
+                value={createData.blog}
                 onChange={handleChange}
                 id="create--textarea"
                 cols="30"
                 rows="10"
               />{" "}
+              <button onClick={handleSubmit} className="create--submit">
+                Submit
+              </button>
             </div>
           </form>
         </div>

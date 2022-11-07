@@ -1,10 +1,14 @@
 import React from "react";
-const Home = () => {
+import Cards from "./Cards";
+import searchicon from "../images/home/searchicon.svg";
+const Home = ({ homeProps: { postData } }) => {
   console.log("Home rendered");
   // const image =
   //   URL.createObjectURL()
   // Implement nav hide on focus on home
-  const image = "";
+  // const image = "";
+  console.log("Post data from home" + postData);
+  console.log(postData);
   return (
     <div
       style={{
@@ -15,9 +19,34 @@ const Home = () => {
         top: "10vh",
         background: "rgb(48, 25, 52)",
       }}
+      className="home--supercontainer"
     >
-      Home
-      <img src={image} alt="" />
+      <div className="home--section1">
+        <div className="home--section1--1">
+          <div className="home--search">
+            <input type="text" placeholder="Search here..." />
+            <img src={searchicon} alt="" />
+          </div>
+          <div className="home--popular">
+            <div className="home--popular--heading">Popular</div>
+          </div>
+          <div className="home--new">
+            <div className="home--new--heading">New</div>
+          </div>
+          <div className="home--recent">
+            <div className="home--recent--heading">Recent</div>{" "}
+          </div>
+        </div>
+        <div className="home--section1--2">
+          <div className="home--carousel">Carousel</div>
+          <div className="home--cards">
+            <Cards />
+          </div>
+        </div>
+      </div>
+
+      {/* Home
+      <img src={image} alt="" /> */}
     </div>
   );
 };

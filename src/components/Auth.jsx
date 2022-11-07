@@ -157,9 +157,9 @@ const Auth = ({ authProps }) => {
       style={{}}
     >
       {/* <img src={ellipseBig} alt="" className="auth--ellipsebig" /> */}
-      <svg
+      {/* <svg
         width="329"
-        height="914"
+        height="914"                            //uncomment
         viewBox="0 0 329 914"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -168,7 +168,7 @@ const Auth = ({ authProps }) => {
         <g>
           <circle cx="-128" cy="457" r="457" fill="#fbda03" />
         </g>
-      </svg>
+      </svg> */}
 
       {/* <img src={subtract} alt="" className="auth--subtract" /> */}
       <svg

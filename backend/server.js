@@ -2,15 +2,19 @@ const express = require('express');
 require('dotenv').config();
 const bcrypt = require('bcrypt')
 const cors = require('cors')
+const { randomUUID } = require('crypto');
+// const bodyParser = require('body-parser')
 const port = 8000;
 const host = "localhost";
 const app = express();
 const { UserInfo, PostInfo } = require("./mongoose");
 const jwt = require('jsonwebtoken');
-app.use(express.urlencoded({ extended: false }))
+// app.use(express.urlencoded({ extended: false }))
 app.use(cors())
-app.use(express.json())
-
+// app.use(express.json())
+// app.use(bodyParser({ limit: '50mb' }))
+app.use(express.json({ limit: '50mb' }));
+app.use(express.urlencoded({ limit: '50mb', extended: false }));
 const invalidRefreshToken = [];
 
 app.post('/api/auth/logout', (req, res) => {
@@ -96,26 +100,26 @@ app.post('/api/auth/refreshtoken', (req, res) => {
     })
 })
 
-app.get('api/posts/gigachad', (req, res) => {
+app.get('/api/posts/gigachad', (req, res) => {
     console.log("request recieved")
     res.status(200).send("GIGACHAD Incoming get")
 })
 
 
 
-app.post('api/posts/gigachad', authentication, (req, res) => {
+app.post('/api/posts/gigachad', authentication, (req, res) => {
     console.log("request recieved")
     res.status(200).send("GIGACHAD Incoming post")
 })
 
-app.post('api/posts/create', authentication, async (req, res) => {
+app.post('/api/posts/create', authentication, async (req, res) => {
     const data = req.body;
     console.log(data)
     const { blog, category, email, img, status, tags, title, username } = data
     if (!status) return res.status(404).send("sign in required");
     if (!(blog && category && email && img && title && username)) return res.status(404).send("incompelete form")
     try {
-        await PostInfo.create({ blog: blog, category: category, email: email, img: img, tags: [11413, "string"], title: title, username: username })
+        await PostInfo.create({ blog: blog, category: category, email: email, img: img, tags: [11413, "string"], title: title, username: username, pid: randomUUID() })
         return res.status(200).send("created success")
     }
     catch (error) {
@@ -124,6 +128,28 @@ app.post('api/posts/create', authentication, async (req, res) => {
     }
 
 })
+
+
+app.get('/api/posts/fetch', authentication, async (req, res) => {
+    try {
+        let allData = await PostInfo.find();
+        let data = [];
+        for (let element of allData) {
+            let { blog, email, title, username, img, likes, dislikes, views, pid, category, tags } = element;
+            data.push({ pid: pid, email: email, img: img, likes: likes, dislikes: dislikes, views: views, username: username, title: title, blog: blog, tags: tags, category: category })
+        }
+        // data = data.filter((val) => val.category === "food")
+        res.status(200).json({ status: "success", data: data });
+    } catch (error) {
+        res.status(400).json({ status: "failed", error: error })
+    }
+})
+
+// app.get('/api/posts/fetch/:id', authentication, async (req, res) => {
+//     console.log("Query parameter recieved  =  " + req.params.id)
+//     res.status(200).send()
+// })
+
 app.listen(port, host, (err) => {
     if (err) {
         console.log(err);

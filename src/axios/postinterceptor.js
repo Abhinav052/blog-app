@@ -4,7 +4,7 @@ import axios from "axios";
 // INTERCEPTOR FOR REQUESTS TO API WITH JWT AUTHORIZATION REQUIRED
 // =============================================================================================================================
 const setInterceptorHeader = axios.create({
-    baseURL: "http://localhost:8000/posts"
+    baseURL: "http://localhost:8000/api/posts"
 })
 
 setInterceptorHeader.interceptors.request.use(

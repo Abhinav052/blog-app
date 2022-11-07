@@ -6,13 +6,30 @@ import Auth from './components/Auth'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
 import Create from './components/Create'
+import setInterceptorHeader from './axios/postinterceptor'
 const App = () => {
   const [windowSize, setWindowSize] = React.useState(getWindowSize());
   const [activeUser, setActiveUser] = React.useState({ username: JSON.parse(localStorage.getItem("data"))?.username, userSignedIn: JSON.parse(localStorage.getItem("data"))?.username ? true : false, email: JSON.parse(localStorage.getItem("data"))?.email });
-
-
   //Code for persisting state on reload               //IMP
 
+
+
+  //Accessing all posts from server
+  const [postData, setPostData] = React.useState("");
+  async function fetchAllPosts() {
+    try {
+      const res = await setInterceptorHeader.get("/fetch");
+      setPostData(res.data);
+    } catch (error) {
+      console.log(error);
+      alert("Please reload Page")
+    }
+  }
+  React.useEffect(() => {
+    fetchAllPosts();
+  }, [])
+
+  // console.log(postData)
 
   // setActiveUser({ username: "gigachad", userSignedIn: true })
   React.useEffect(() => {
@@ -69,11 +86,15 @@ const App = () => {
 
   }
 
+  const homeProps = {
+    postData: postData
+  }
+
   return (
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Navbar navProps={navProps} />}>
-          <Route index element={<Home />} />
+          <Route index element={<Home homeProps={homeProps} />} />
           <Route path='/about' element={<Cart />} />
           <Route path='/create' element={<Create createProps={createProps} />} />
         </Route>

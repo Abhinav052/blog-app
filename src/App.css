@@ -425,6 +425,120 @@
  ============================================================ Home Styles ====================================================================
 ============================================================================================================================================= */
 
+.home--supercontainer {
+}
+.home--section1 {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+}
+.home--section1--1 {
+  background-color: aliceblue;
+  padding-top: 10vh;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 10vh;
+}
+
+.home--search {
+  border: 2px solid rgba(0, 0, 0, 0.112);
+  width: 70%;
+  height: 60px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.home--search input {
+  width: 80%;
+  border: none;
+  height: 100%;
+  padding-left: 10%;
+  background-color: aliceblue;
+}
+
+.home--search input::placeholder {
+  color: rgba(0, 0, 0, 0.452);
+}
+/* .home--search input:focus {
+  border: none;
+} */
+
+.home--search img {
+  height: 30%;
+  width: 20%;
+}
+
+.home--popular {
+  min-height: 60px;
+  border: 2px solid rgba(0, 0, 0, 0.112);
+  width: 70%;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.home--popular--heading {
+  text-align: center;
+  padding-top: 18px;
+  width: 100%;
+  height: 60px;
+}
+
+.home--new {
+  min-height: 60px;
+  border: 2px solid rgba(0, 0, 0, 0.112);
+  width: 70%;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.home--new--heading {
+  text-align: center;
+  padding-top: 18px;
+  width: 100%;
+  height: 60px;
+}
+
+.home--recent {
+  min-height: 60px;
+  border: 2px solid rgba(0, 0, 0, 0.112);
+  width: 70%;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.home--recent--heading {
+  text-align: center;
+  padding-top: 18px;
+  width: 100%;
+  height: 60px;
+}
+
+.home--section1--2 {
+  background-color: aquamarine;
+  padding-top: 10vh;
+  width: 70%;
+  padding-bottom: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.home--carousel {
+  background-color: aliceblue;
+  width: 80%;
+  height: 300px;
+  margin-bottom: 40px;
+  border-radius: 5px;
+}
+.home--cards {
+  background-color: aqua;
+  width: 80%;
+}
 /* =============================================================================================================================================
  ============================================================ Create Styles ====================================================================
 ============================================================================================================================================= */
@@ -439,7 +553,7 @@
 
 .create--imageloader {
   margin-top: 20px;
-  height: 300px;
+  height: 500px;
   background-color: aliceblue;
   width: 80%;
   position: relative;
@@ -493,7 +607,6 @@
   resize: vertical;
   background-color: #180d1a;
   color: white;
-  margin-bottom: 10vh;
 }
 #create--tags {
 }
@@ -506,6 +619,15 @@
 /* input[type="file"] {
   display: none;
 } */
+
+.create--submit {
+  margin-top: 30px;
+  margin-bottom: 10vh;
+  height: 40px;
+  color: white;
+  background-color: #180d1a;
+  border: 1px solid white;
+}
 
 ::-webkit-file-upload-button {
   /* background: black; */

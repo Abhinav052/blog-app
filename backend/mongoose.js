@@ -52,6 +52,22 @@ const postSchema = new mongoose.Schema({
     username: {
         type: String,
         required: true
+    },
+    pid: {
+        type: String,
+        required: true
+    },
+    likes: {
+        type: Number,
+        default: 0
+    },
+    dislikes: {
+        type: Number,
+        default: 0
+    },
+    views: {
+        type: Number,
+        default: 0
     }
 
 })
