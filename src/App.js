@@ -12,13 +12,14 @@ const App = () => {
   const [windowSize, setWindowSize] = React.useState(getWindowSize());
   const [activeUser, setActiveUser] = React.useState({ username: JSON.parse(localStorage.getItem("data"))?.username, userSignedIn: JSON.parse(localStorage.getItem("data"))?.username ? true : false, email: JSON.parse(localStorage.getItem("data"))?.email });
   //Code for persisting state on reload               //IMP
-
+  const [loader, setLoader] = React.useState(false);
 
 
   //Accessing all posts from server
   const [postData, setPostData] = React.useState("");
   async function fetchAllPosts() {
     try {
+      setLoader(true)
       const res = await setInterceptorHeader.get("/fetch");
       setPostData(res.data);
     } catch (error) {
@@ -95,7 +96,7 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Navbar navProps={navProps} />}>
-          <Route index element={<Home homeProps={homeProps} />} />
+          <Route index element={<Home homeProps={{ ...homeProps, setLoader: setLoader, loader: loader }} />} />
           <Route path='/about' element={<Cart />} />
           <Route path='/create' element={<Create createProps={createProps} />} />
           <Route path='/details/:pid' element={<Details homeProps={homeProps} />} />

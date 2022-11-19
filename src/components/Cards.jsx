@@ -6,6 +6,11 @@ import { useNavigate } from "react-router-dom";
 const Cards = (props) => {
   const navigate = useNavigate();
   function handleDetails() {
+    if (!props !== true) {
+      console.log(props);
+      props.setLoader(true);
+      console.log("Altering loader 2");
+    }
     navigate(`/details/${props.pid}`);
   }
   return (

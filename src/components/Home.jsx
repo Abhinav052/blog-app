@@ -3,9 +3,11 @@ import Cards from "./Cards";
 import searchicon from "../images/home/searchicon.svg";
 import Sidemenu from "./Sidemenu";
 import Carousel from "./Carousel";
+import { Link } from "react-router-dom";
 // import img1 from "../images/carousel/img1.jpg";
 import Details from "./Details";
-const Home = ({ homeProps: { postData } }) => {
+import Loader from "./Loader";
+const Home = ({ homeProps: { postData, loader, setLoader } }) => {
   console.log("Home rendered");
   // const image =
   //   URL.createObjectURL()
@@ -24,6 +26,11 @@ const Home = ({ homeProps: { postData } }) => {
       setPopular(popular);
       const card = postData.data.map((data) => {
         return (
+          // <Link
+          //   to={`/details/${data.pid}`}
+          //   target="_blank"
+          //   style={{ textDecoration: "none" }}
+          // >
           <Cards
             title={data.title}
             image={data.img}
@@ -31,7 +38,9 @@ const Home = ({ homeProps: { postData } }) => {
             category={data.category}
             user={data.username}
             pid={data.pid}
+            setLoader={setLoader}
           />
+          // </Link>
         );
       });
       if (card.length >= 6) {
@@ -57,6 +66,7 @@ const Home = ({ homeProps: { postData } }) => {
       });
     }
     setCarouselData(res);
+    setLoader(false);
   }, [postData]);
   function handleLoad() {
     if (load + 6 > cards.length) {
@@ -65,7 +75,9 @@ const Home = ({ homeProps: { postData } }) => {
       setLoad((prev) => prev + 6);
     }
   }
-  return (
+  return loader ? (
+    <Loader />
+  ) : (
     <div
       style={{
         backgroundColor: "orange",
