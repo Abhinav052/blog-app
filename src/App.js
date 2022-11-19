@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
 import Create from './components/Create'
 import setInterceptorHeader from './axios/postinterceptor'
+import Details from './components/Details'
 const App = () => {
   const [windowSize, setWindowSize] = React.useState(getWindowSize());
   const [activeUser, setActiveUser] = React.useState({ username: JSON.parse(localStorage.getItem("data"))?.username, userSignedIn: JSON.parse(localStorage.getItem("data"))?.username ? true : false, email: JSON.parse(localStorage.getItem("data"))?.email });
@@ -22,7 +23,7 @@ const App = () => {
       setPostData(res.data);
     } catch (error) {
       console.log(error);
-      alert("Please reload Page")
+      // alert("Please reload Page")
     }
   }
   React.useEffect(() => {
@@ -97,6 +98,7 @@ const App = () => {
           <Route index element={<Home homeProps={homeProps} />} />
           <Route path='/about' element={<Cart />} />
           <Route path='/create' element={<Create createProps={createProps} />} />
+          <Route path='/details/:pid' element={<Details homeProps={homeProps} />} />
         </Route>
         <Route path='/auth' element={<Auth authProps={authProps} />} />
       </Routes>

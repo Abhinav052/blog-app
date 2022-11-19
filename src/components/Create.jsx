@@ -6,6 +6,10 @@ import setInterceptorHeader from "../axios/postinterceptor.js";
 const Create = (props) => {
   // createdefault = createdefaultedit;
 
+  //'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+  //If status is false do not render this page send to login instead or ask for sign in
+  //'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
   //Props DEsctructuring
   const {
     createProps: { username, status, email },
