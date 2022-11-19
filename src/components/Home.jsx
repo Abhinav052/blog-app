@@ -117,9 +117,9 @@ const Home = ({ homeProps: { postData, loader, setLoader } }) => {
         <div className="home--section1--2">
           <div className="home--carousel">
             {carouselData === "" ? (
-              <Details />
+              ""
             ) : (
-              <Carousel image={carouselData} />
+              <Carousel image={[carouselData, setLoader]} />
             )}
           </div>
           <div className="home--cards">{cards.slice(0, load)}</div>
