@@ -286,15 +286,19 @@
   flex-direction: row;
   align-items: center;
   color: white;
-  background: linear-gradient(
+  /* background: linear-gradient(
     -45deg,
-    /* #ff00f4, #c900ff,
+    #ff00f4, #c900ff,
     #6f00ff,
-    #001dab, */ rgb(48, 25, 52),
+    #001dab,
+     rgb(48, 25, 52),
     #000000
-  );
+  ); */
+  background-color: black;
   /* border-bottom: 2px solid #d01eef; */
   background-size: 150% 100%;
+  border-bottom: 2px solid #fbda03;
+  box-shadow: 0px 1px 15px 1px #fbda03;
 }
 
 .nav--title {
@@ -434,7 +438,10 @@
   min-height: 100vh;
 }
 .home--section1--1 {
-  background-color: aliceblue;
+  background-color: black;
+  /* background-color: aliceblue; */
+  color: white;
+  /* border-right: 2px solid #fbda03; */
   padding-top: 10vh;
   width: 30%;
   display: flex;
@@ -444,14 +451,16 @@
 }
 
 .home--search {
-  border: 2px solid rgba(0, 0, 0, 0.112);
+  /* border: 2px solid rgba(0, 0, 0, 0.112); */
+  border: 1px solid #fbda03;
   width: 70%;
   height: 60px;
   border-radius: 5px;
-  margin-bottom: 15px;
+  margin-bottom: 80px;
   display: flex;
   align-items: center;
   justify-content: space-around;
+  box-shadow: -2px 2px 10px 2px #fbda03;
 }
 
 .home--search input {
@@ -459,11 +468,14 @@
   border: none;
   height: 100%;
   padding-left: 10%;
-  background-color: aliceblue;
+  background-color: black;
+  /* background-color: aliceblue; */
+  color: white;
 }
 
 .home--search input::placeholder {
-  color: rgba(0, 0, 0, 0.452);
+  /* color: rgba(0, 0, 0, 0.452); */
+  color: white;
 }
 /* .home--search input:focus {
   border: none;
@@ -476,10 +488,13 @@
 
 .home--popular {
   min-height: 60px;
-  border: 2px solid rgba(0, 0, 0, 0.112);
+  /* border: 2px solid rgba(0, 0, 0, 0.112); */
+  border: 1px solid #fbda03;
   width: 70%;
   border-radius: 5px;
-  margin-bottom: 15px;
+  margin-bottom: 80px;
+  box-shadow: -4px 4px 10px #fbda03;
+  box-shadow: -2px 2px 10px 2px #fbda03;
 }
 
 .home--popular--heading {
@@ -491,10 +506,11 @@
 
 .home--new {
   min-height: 60px;
-  border: 2px solid rgba(0, 0, 0, 0.112);
+  /* border: 2px solid rgba(0, 0, 0, 0.112); */
+  border: 2px solid #fbda03;
   width: 70%;
   border-radius: 5px;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
 }
 
 .home--new--heading {
@@ -506,10 +522,13 @@
 
 .home--recent {
   min-height: 60px;
-  border: 2px solid rgba(0, 0, 0, 0.112);
+  /* border: 2px solid rgba(0, 0, 0, 0.112); */
+  border: 1px solid #fbda03;
   width: 70%;
   border-radius: 5px;
   margin-bottom: 15px;
+  box-shadow: -4px 4px 10px #fbda03;
+  box-shadow: -2px 2px 10px 2px #fbda03;
 }
 
 .home--recent--heading {
@@ -520,7 +539,8 @@
 }
 
 .home--section1--2 {
-  background-color: aquamarine;
+  /* background-color: aquamarine; */
+  background-color: black;
   padding-top: 10vh;
   width: 70%;
   padding-bottom: 10vh;
@@ -529,18 +549,20 @@
   align-items: center;
 }
 .home--carousel {
-  background-color: aliceblue;
+  /* background-color: aliceblue; */
+  background-color: black;
   width: 80%;
   height: 300px;
   margin-bottom: 40px;
   border-radius: 5px;
 }
 .home--cards {
-  background-color: whitesmoke;
+  /* background-color: whitesmoke; */
+  background-color: black;
   width: 80%;
   display: grid;
-  gap: 30px;
-  grid-template-columns: repeat(3, 1fr);
+  gap: 70px;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 /* =============================================================================================================================================
@@ -550,10 +572,17 @@
 .card--container {
   display: flex;
   flex-direction: column;
-  border: 2px solid rgba(128, 128, 128, 0.236);
+  /* border: 2px solid rgba(128, 128, 128, 0.236); */
+  margin-top: 30px;
+  border: 2px solid #fbda0368;
   min-width: 200px;
-  background-color: aliceblue;
+  /* background-color: aliceblue; */
+  background-color: black;
+  color: white;
   border-radius: 5px;
+  box-shadow: -1px 1px #fbda03;
+  overflow: hidden;
+
   /* border-bottom: none; */
 }
 
@@ -562,10 +591,10 @@
   border-top-right-radius: 10px;
 } */
 .card--image {
-  height: 150px;
+  height: 200px;
   width: 100%;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 .card--content {
   display: flex;
@@ -586,7 +615,8 @@
 
 .card--header span {
   font-weight: normal;
-  background-color: #78158a;
+  /* background-color: #78158a; */
+  background-color: #fbda03;
   color: white;
   width: 100px;
   text-align: center;
@@ -616,13 +646,13 @@
 .card--footer {
   width: 100%;
   height: 25%;
-  background-color: rgba(128, 128, 128, 0.236);
+  /* background-color: rgba(128, 128, 128, 0.236); */
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
 }
 
 .card--author {
-  background-color: rgba(128, 128, 128, 0.236);
+  /* background-color: rgba(128, 128, 128, 0.236); */
   width: 100%;
   display: block;
   height: 40%;
@@ -631,7 +661,8 @@
 }
 
 .card--votes {
-  background-color: rgba(128, 128, 128, 0.236);
+  /* background-color: rgba(128, 128, 128, 0.236); */
+
   height: 60%;
   width: 100%;
   display: flex;
@@ -640,6 +671,7 @@
 }
 
 .card--footer div img {
+  color: white;
   height: 20px;
 }
 
@@ -665,7 +697,8 @@
 
 .sidemenu--container {
   height: 60px;
-  border-top: 2px solid rgba(0, 0, 0, 0.112);
+  /* border-top: 2px solid rgba(0, 0, 0, 0.112); */
+  border-top: 2px solid #fbda032d;
   width: 100%;
   display: flex;
 }
@@ -700,7 +733,8 @@
 .create--imageloader {
   margin-top: 20px;
   height: 500px;
-  background-color: aliceblue;
+  /* background-color: aliceblue; */
+  background-color: black;
   width: 80%;
   position: relative;
 }
@@ -738,7 +772,8 @@
 .create--forminput input,
 .create--forminput select {
   height: 40px;
-  background-color: #180d1a;
+  /* background-color: #180d1a; */
+  background-color: black;
   color: white;
 }
 
@@ -815,4 +850,30 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* =============================================================================================================================================
+ ============================================================ Details Styles ====================================================================
+============================================================================================================================================= */
+
+.details--title {
+  text-align: left;
+  width: 60%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.details--image {
+  width: 60%;
+  height: 400px;
+}
+
+.details--content {
+  width: 60%;
+  margin-top: 50px;
+}
+
+.details--publisher {
+  width: 60%;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }

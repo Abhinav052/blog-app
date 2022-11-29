@@ -114,7 +114,8 @@ const Create = (props) => {
         width: "100%",
         position: "absolute",
         top: "10vh",
-        background: "rgb(48, 25, 52)",
+        // background: "rgb(48, 25, 52)",
+        backgroundColor: "black",
       }}
     >
       <div className="create--supercontainer">

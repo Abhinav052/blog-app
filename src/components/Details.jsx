@@ -61,10 +61,15 @@ const Details = (props) => {
   return (
     <div
       style={{
-        height: "100vh",
+        minHeight: "100vh",
         width: "100%",
         position: "absolute",
         top: "10vh",
+        display: "flex",
+        alignItems: "center",
+        flexDirection: "column",
+        backgroundColor: "black",
+        color: "white",
       }}
     >
       <h1 className="details--title">
@@ -74,7 +79,7 @@ const Details = (props) => {
         src={!currentPost[0] ? "" : currentPost[0].img}
         alt=""
         className="details--image"
-        style={{ height: "400px" }}
+        // style={{ height: "400px" }}
       />
       <p className="details--content">
         {!currentPost[0] ? "" : currentPost[0].blog}
